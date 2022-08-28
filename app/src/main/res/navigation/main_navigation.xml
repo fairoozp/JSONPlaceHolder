@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.jsonplaceholder.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_homeSubFragment"
+            app:destination="@id/homeSubFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeSubFragment"
+        android:name="com.example.jsonplaceholder.ui.HomeSubFragment"
+        android:label="fragment_home_sub"
+        tools:layout="@layout/fragment_home_sub" >
+        <argument
+            android:name="id"
+            app:argType="string"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.example.jsonplaceholder.ui.AlbumFragment"
+        android:label="fragment_album"
+        tools:layout="@layout/fragment_album" >
+        <action
+            android:id="@+id/action_albumFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.jsonplaceholder.ui.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.example.jsonplaceholder.ui.PhotoFragment"
+        android:label="fragment_photo"
+        tools:layout="@layout/fragment_photo" >
+        <argument
+            android:name="photoId"
+            app:argType="string"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_photoFragment_to_singlePhotoFragment"
+            app:destination="@id/singlePhotoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/singlePhotoFragment"
+        android:name="com.example.jsonplaceholder.ui.SinglePhotoFragment"
+        android:label="fragment_single_photo"
+        tools:layout="@layout/fragment_single_photo" >
+        <argument
+            android:name="url"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+</navigation>
